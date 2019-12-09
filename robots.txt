@@ -1,5 +1,5 @@
 ﻿User-agent: *
-Sitemap: https://zavtraksozvezdoi.itsinsta.site/sitemap.xml
+Sitemap: https://zavtraksozvezdoi.ru/sitemap.xml
 Disallow: /main.html
 Disallow: /main
 Disallow: /stories.html
