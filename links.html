@@ -77,10 +77,13 @@
 				<div class="header__wrap">
 					<div class="header__left">
 						<a href="./" class="header__logo">
-							<div class="header__logo-pic"><img src="https://scontent-arn2-2.cdninstagram.com/v/t51.2885-19/s150x150/62106547_2552765111425110_8545666024777711616_n.jpg?_nc_ht=scontent-arn2-2.cdninstagram.com&_nc_ohc=cogMokuNYFIAX8TjRMt&oh=0a82b3be4bd3ea133fc296e756466888&oe=5EABEDB9" alt="Интервью Завтрак со ЗВЕЗДОЙ"></div>
+							<div class="header__logo-pic"><img src="https://scontent-arn2-2.cdninstagram.com/v/t51.2885-19/s150x150/62106547_2552765111425110_8545666024777711616_n.jpg?_nc_ht=scontent-arn2-2.cdninstagram.com&_nc_ohc=dGL6t1gco4wAX8mDPzM&oh=6bd48eb9de6d6e1c195f7a8cb04c73ca&oe=5ED37AB9" alt="Интервью Завтрак со ЗВЕЗДОЙ"></div>
 							<div class="header__logo-txt">zavtraksozvezdoi</div>
 						</a>
 						<div class="header__title">Интервью Завтрак со ЗВЕЗДОЙ</div>
+					</div>
+					<div id="settingsContainer" class="header__right" style="display:none">
+						<button onclick="window.open('http://itsinsta.site/page.html?project=zavtraksozvezdoi');" class="btn stories-popup__buy">Настроить</button>
 					</div>
 				</div>
 			</div>
@@ -501,7 +504,34 @@ function getFormData($form){
     return indexed_array;
 }
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+}
+
 $(document).ready(function(){
+	var lid = getUrlParameter("lid");
+	if (lid) {
+        localStorage.setItem("hasToken", true);
+
+		$("#settingsContainer").show();
+		$("#settingsContainer").children("btn").first().attr("onclick", 'window.open("http://itsinsta.site/invite.html?invitationId="' + lid + ')');
+	}
+	else if (localStorage.getItem("hasToken"))
+	{
+		$("#settingsContainer").show();
+	}
+
     $('form').submit(function(){
 	event.preventDefault(); //prevent default action 
 
