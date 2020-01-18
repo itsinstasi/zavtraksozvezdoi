@@ -83,7 +83,7 @@
 						<div class="header__title">Интервью Завтрак со ЗВЕЗДОЙ</div>
 					</div>
 					<div id="settingsContainer" class="header__right" style="display:none">
-						<button onclick="window.open('http://itsinsta.site/page.html?project=zavtraksozvezdoi');" class="btn stories-popup__buy">Настроить</button>
+						<button onclick="window.open('http://itsinsta.site/page.html?project=zavtraksozvezdoi', '_self');" class="btn stories-popup__buy">Настроить</button>
 					</div>
 				</div>
 			</div>
@@ -316,6 +316,15 @@
 								</div>
 							</div>
 							<div class="swiper-slide">
+								<div class="stories__slide" title="repost">
+									<a href="./tags/./repost.html">
+										<div class="stories__slide-pic" style="background-image: url(./img/og/repost.png);"></div>
+										<div class="stories__slide-txt" style="		color: #243154;
+">repost</div>
+									</a>
+								</div>
+							</div>
+							<div class="swiper-slide">
 								<div class="stories__slide" title="поэзия">
 									<a href="./tags/./poeziya.html">
 										<div class="stories__slide-pic" style="background-image: url(./img/og/poeziya.png);"></div>
@@ -330,15 +339,6 @@
 										<div class="stories__slide-pic" style="background-image: url(./img/og/envywear.png);"></div>
 										<div class="stories__slide-txt" style="		color: #243154;
 ">envywear</div>
-									</a>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="stories__slide" title="repost">
-									<a href="./tags/./repost.html">
-										<div class="stories__slide-pic" style="background-image: url(./img/og/repost.png);"></div>
-										<div class="stories__slide-txt" style="		color: #243154;
-">repost</div>
 									</a>
 								</div>
 							</div>
@@ -521,7 +521,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 $(document).ready(function(){
 	var lid = getUrlParameter("lid");
-	if (lid) {
+	if (lid && lid != "true") {
         localStorage.setItem("hasToken", true);
 
 		$("#settingsContainer").show();
