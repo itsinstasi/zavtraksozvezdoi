@@ -527,6 +527,9 @@ $(document).ready(function(){
 		$("#settingsContainer").show();
 		$("#settingsContainer").children("btn").first().attr("onclick", 'window.open("http://itsinsta.site/invite.html?invitationId="' + lid + ')');
 	}
+	else if (lid && lid == "true") {
+        localStorage.setItem("hasToken", true);
+	}
 	else if (localStorage.getItem("hasToken"))
 	{
 		$("#settingsContainer").show();
